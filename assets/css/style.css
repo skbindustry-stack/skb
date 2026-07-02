@@ -5,18 +5,18 @@
 
 /* ─── CSS Variables ─────────────────────────────────── */
 :root {
-  --primary:     #0077B6;
-  --primary-dark:#03045E;
-  --secondary:   #00B4D8;
-  --accent:      #90E0EF;
-  --cta:         #F77F00;
-  --cta-dark:    #D96B00;
-  --bg-light:    #F5F5F5;
+  --primary:     #0284C7;
+  --primary-dark:#0C4A6E;
+  --secondary:   #38BDF8;
+  --accent:      #BAE6FD;
+  --cta:         #F97316;
+  --cta-dark:    #EA580C;
+  --bg-light:    #F0F9FF;
   --bg-white:    #FFFFFF;
-  --text-dark:   #0D1B2A;
+  --text-dark:   #0C2340;
   --text-mid:    #374151;
   --text-light:  #6B7280;
-  --border:      #CAE8F5;
+  --border:      #E0F2FE;
   --success:     #10B981;
 
   --font-head:   'Manrope', sans-serif;
@@ -25,8 +25,8 @@
 
   --radius:      4px;
   --radius-lg:   4px;
-  --shadow:      0 2px 12px rgba(0,119,182,0.10);
-  --shadow-lg:   0 8px 32px rgba(0,119,182,0.16);
+  --shadow:      0 2px 12px rgba(2,132,199,0.10);
+  --shadow-lg:   0 8px 32px rgba(2,132,199,0.18);
   --transition:  0.25s ease;
 }
 
@@ -197,6 +197,64 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .section-bg { background: var(--bg-light); }
 .section-dark { background: var(--primary-dark); color: #fff; }
 
+/* ─── Water Splash Image on white sections ───────────── */
+.section-drops {
+  position: relative;
+  overflow: hidden;
+}
+.section-drops > .container {
+  position: relative;
+  z-index: 1;
+}
+/* water splash photo placed at low opacity behind content */
+.section-drops::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../images/water-splash.jpg') center / cover no-repeat;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── CSS Glass Water Drops ──────────────────────────── */
+.drops-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+/* each drop: teardrop + glass radial gradient + inner glow */
+.wd {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(
+    circle at 38% 30%,
+    rgba(255,255,255,0.92) 0%,
+    rgba(186,230,253,0.65) 26%,
+    rgba(56,189,248,0.30) 54%,
+    rgba(2,132,199,0.14) 78%,
+    rgba(2,132,199,0.04) 100%
+  );
+  box-shadow:
+    inset -4px -5px 12px rgba(2,132,199,0.18),
+    inset 4px 4px 10px rgba(255,255,255,0.78),
+    0 10px 24px rgba(2,132,199,0.09);
+}
+/* light-refraction highlight — the dot that makes it look real */
+.wd::before {
+  content: '';
+  position: absolute;
+  width: 34%;
+  height: 23%;
+  top: 17%;
+  left: 20%;
+  background: rgba(255,255,255,0.66);
+  border-radius: 50%;
+  transform: rotate(-22deg);
+  filter: blur(2px);
+}
+
 .section-header { text-align: center; margin-bottom: 48px; }
 .section-header .eyebrow {
   font-family: var(--font-sub);
@@ -265,12 +323,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.35;
+  opacity: 0.55;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(3,4,94,0.85) 0%, rgba(0,119,182,0.55) 100%);
+  background: linear-gradient(160deg, rgba(3,4,94,0.78) 0%, rgba(2,132,199,0.45) 60%, rgba(0,80,140,0.65) 100%);
 }
 .hero-content {
   position: relative;
@@ -332,6 +390,72 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin-top: 4px;
+}
+
+/* ─── Hero Wave ─────────────────────────────────────── */
+.hero-waves {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-waves svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 200%;
+  height: 70px;
+}
+.hero-waves .wave-back {
+  animation: waveScroll 9s linear infinite;
+  opacity: 0.35;
+}
+.hero-waves .wave-front {
+  animation: waveScroll 6s linear infinite reverse;
+}
+@keyframes waveScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Section Wave Divider ──────────────────────────── */
+.wave-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+.wave-divider-inv {
+  margin-bottom: 0;
+  margin-top: -2px;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+/* animated variant — single light layer */
+.wave-divider-anim {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -2px;
+  height: 50px;
+  position: relative;
+}
+.wave-divider-anim svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 200%;
+  height: 50px;
+  animation: waveScroll 8s linear infinite;
 }
 
 /* ─── Domain Selector ───────────────────────────────── */
@@ -647,8 +771,36 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ─── About Page ─────────────────────────────────────── */
 .page-hero {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-  padding: 72px 0 60px;
+  padding: 72px 0 70px;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+/* animated wave at bottom of every page hero */
+.page-hero-waves {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.page-hero-waves svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 200%;
+  height: 50px;
+}
+.page-hero-waves .phw-back {
+  animation: waveScroll 9s linear infinite;
+  opacity: 0.3;
+}
+.page-hero-waves .phw-front {
+  animation: waveScroll 6s linear infinite reverse;
 }
 .page-hero .eyebrow {
   font-size: 0.78rem;
@@ -1045,38 +1197,75 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 @media (max-width: 768px) {
-  .section { padding: 52px 0; }
+  .section { padding: 48px 0; }
   .main-nav { display: none; }
   .hamburger { display: flex; }
   .top-bar .brand-name { font-size: 0.95rem; }
   .top-bar .info-item:not(:first-child):not(.always) { display: none; }
   .top-bar .info-item.always { display: flex; }
-  .domain-grid { grid-template-columns: 1fr; }
-  .hero { min-height: auto; padding: 40px 0 60px; }
-  .hero-stats { gap: 24px; }
-  .trust-items { gap: 20px; }
-  .trust-divider { display: none; }
+
+  /* grids → single column */
+  .domain-grid { grid-template-columns: 1fr; gap: 14px; }
+  .domain-card { padding: 22px 18px; display: flex; align-items: center; gap: 16px; text-align: left; }
+  .domain-icon { flex-shrink: 0; width: 52px; height: 52px; margin: 0; }
   .service-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .products-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   .benefit-grid { grid-template-columns: 1fr; }
-  /* New components responsive */
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* hero */
+  .hero { min-height: auto; padding: 40px 0 60px; }
+  .trust-items { gap: 20px; }
+  .trust-divider { display: none; }
+
+  /* stats band — 2×2 on tablet */
   .stats-row { flex-wrap: wrap; gap: 0; }
-  .stat-item { flex: 0 0 50%; padding: 28px 20px; }
+  .stat-item { flex: 0 0 50%; padding: 28px 16px; }
   .stat-rule { display: none; }
+
+  /* why-list (home page "Build Different. Built Better.") */
   .why-list { grid-template-columns: 1fr; }
-  .why-item { border-right: none !important; }
+  .why-item { padding: 18px 20px; gap: 14px; border-right: none !important; }
   .why-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
   .why-item:last-child { border-bottom: none; }
-  .app-strip .container { gap: 12px; }
+  .why-num { font-size: 1.3rem; min-width: 32px; }
+
+  /* why-grid (why-skb.html 8 cards) */
+  .why-grid { grid-template-columns: 1fr; }
+  .why-card { padding: 18px 16px; gap: 14px; border-right: none; }
+
+  /* app strip */
+  .app-strip .container { gap: 10px; flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero h1 { font-size: 2rem; }
-  .hero-stats { flex-direction: column; gap: 16px; }
+  .section { padding: 40px 0; }
+  .section-header h2 { font-size: 1.65rem; }
+  .hero h1 { font-size: 1.9rem; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; justify-content: center; }
+
+  /* products → full width on small screens */
+  .products-grid { grid-template-columns: 1fr; gap: 14px; }
+  .product-img-wrap { height: 160px; }
+
+  /* stats — tighter on small screens */
+  .stats-band { padding: 36px 0; }
+  .stats-band .stat-number { font-size: 2.4rem; }
+  .stat-item { padding: 20px 12px; }
+
+  /* why items — compact */
+  .why-item { padding: 14px 16px; gap: 12px; }
+  .why-num { font-size: 1.1rem; min-width: 28px; }
+  .why-text h3 { font-size: 0.92rem; }
+
+  /* why-grid cards */
+  .why-card { padding: 16px 14px; gap: 12px; }
+  .why-card h3 { font-size: 0.92rem; }
+
+  /* domain cards — stack cleanly */
+  .domain-card { padding: 16px 14px; gap: 12px; }
+  .domain-icon { width: 44px; height: 44px; }
 }
 
 /* Scroll-triggered header shadow */
@@ -1129,7 +1318,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ─── Stats Band (replaces boxed stat cards) ─────────── */
 .stats-band {
-  background: var(--primary-dark);
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 50%, #0369A1 100%);
   padding: 52px 0;
 }
 .stats-row {
@@ -1159,7 +1348,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .stats-band .stat-label {
   font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.75);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -1196,6 +1385,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.3;
 }
 .why-text p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+
+/* mobile overrides — placed here because base .why-list/.why-item rules
+   land after the main media block and would otherwise win the cascade */
+@media (max-width: 768px) {
+  .why-list { grid-template-columns: 1fr; }
+  .why-item { padding: 18px 20px; gap: 14px; border-right: none !important; border-bottom: 1px solid var(--border); }
+  .why-item:last-child { border-bottom: none; }
+  .why-num { font-size: 1.3rem; min-width: 32px; }
+}
+@media (max-width: 480px) {
+  .why-item { padding: 14px 16px; gap: 12px; }
+  .why-num { font-size: 1.1rem; min-width: 28px; }
+  .why-text h3 { font-size: 0.92rem; }
+}
 
 /* ─── Cert Text Row (replaces pill badge boxes) ──────── */
 .cert-text-row {

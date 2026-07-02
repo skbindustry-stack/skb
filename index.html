@@ -78,7 +78,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="none" poster="assets/images/hero-poster.jpg">
+    <video class="hero-video" autoplay muted playsinline preload="none" poster="assets/images/hero-poster.jpg">
       <source src="assets/video/hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
@@ -94,25 +94,17 @@
           <a href="products.html" class="btn btn-cta">Explore Products</a>
           <a href="dealer.html" class="btn btn-outline-white">Dealer Enquiry</a>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="number">20+</div>
-            <div class="label">Years Experience</div>
-          </div>
-          <div class="hero-stat">
-            <div class="number">120+</div>
-            <div class="label">Pump Models</div>
-          </div>
-          <div class="hero-stat">
-            <div class="number">5</div>
-            <div class="label">ISI Certifications</div>
-          </div>
-          <div class="hero-stat">
-            <div class="number">3</div>
-            <div class="label">Branch Offices</div>
-          </div>
-        </div>
       </div>
+    </div>
+
+    <!-- animated wave at hero bottom -->
+    <div class="hero-waves" aria-hidden="true">
+      <svg class="wave-back" viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M0,42 C240,18 480,58 720,42 C960,26 1200,58 1440,42 C1680,26 1920,58 2160,42 C2400,26 2640,58 2880,42 L2880,70 L0,70 Z"/>
+      </svg>
+      <svg class="wave-front" viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M0,52 C360,22 720,62 1080,48 C1440,34 1800,60 2160,44 C2520,28 2700,56 2880,52 L2880,70 L0,70 Z"/>
+      </svg>
     </div>
   </section>
 
@@ -163,7 +155,14 @@
   </div>
 
   <!-- FEATURED PRODUCTS -->
-  <section class="section">
+  <section class="section section-drops">
+    <div class="drops-layer" aria-hidden="true">
+      <div class="wd" style="width:64px;height:84px;top:5%;right:4%;"></div>
+      <div class="wd" style="width:38px;height:50px;bottom:8%;left:3%;opacity:0.75;"></div>
+      <div class="wd" style="width:22px;height:30px;top:40%;right:16%;opacity:0.6;"></div>
+      <div class="wd" style="width:48px;height:64px;bottom:15%;right:10%;opacity:0.65;"></div>
+      <div class="wd" style="width:16px;height:22px;top:20%;left:20%;opacity:0.5;"></div>
+    </div>
     <div class="container">
       <div class="section-header">
         <div class="eyebrow">Our Range</div>
@@ -238,6 +237,13 @@
     </div>
   </section>
 
+  <!-- Wave divider: white → dark (animated) -->
+  <div class="wave-divider-anim" aria-hidden="true">
+    <svg viewBox="0 0 2880 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#0369A1" d="M0,22 C240,48 480,4 720,22 C960,40 1200,4 1440,22 C1680,40 1920,4 2160,22 C2400,40 2640,4 2880,22 L2880,50 L0,50 Z"/>
+    </svg>
+  </div>
+
   <!-- STATS BAND -->
   <div class="stats-band">
     <div class="container">
@@ -265,8 +271,21 @@
     </div>
   </div>
 
+  <!-- Wave divider: dark → white -->
+  <div class="wave-divider wave-divider-inv" aria-hidden="true">
+    <svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#0369A1" d="M0,0 L1440,0 L1440,30 C1080,50 720,10 360,38 C180,52 60,20 0,30 Z"/>
+    </svg>
+  </div>
+
   <!-- WHY SKB TEASER -->
-  <section class="section">
+  <section class="section section-drops">
+    <div class="drops-layer" aria-hidden="true">
+      <div class="wd" style="width:54px;height:72px;top:8%;left:3%;"></div>
+      <div class="wd" style="width:30px;height:40px;top:55%;right:4%;opacity:0.7;"></div>
+      <div class="wd" style="width:20px;height:28px;top:25%;right:20%;opacity:0.55;"></div>
+      <div class="wd" style="width:44px;height:58px;bottom:10%;left:10%;opacity:0.65;"></div>
+    </div>
     <div class="container">
       <div class="section-header">
         <div class="eyebrow">Why Choose Us</div>
