@@ -118,3 +118,28 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     }
   });
 });
+
+/* ── Lightbox Modal ── */
+window.openLightbox = function(src) {
+  const modal = document.getElementById('lightboxModal');
+  const img = document.getElementById('lightboxImg');
+  if (modal && img) {
+    img.src = src;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeLightbox = function() {
+  const modal = document.getElementById('lightboxModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    window.closeLightbox();
+  }
+});
