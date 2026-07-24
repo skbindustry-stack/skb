@@ -977,6 +977,52 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 280px;
 }
 .about-imgs .img-sm { height: 180px; }
+
+/* Clean single image layout */
+.about-img-single img {
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  width: 100%;
+  height: 420px;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease;
+}
+.about-img-single img:hover {
+  transform: scale(1.015);
+}
+
+/* Two offset images layout */
+.about-imgs-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.about-imgs-two img {
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+.about-imgs-two img:hover {
+  transform: translateY(-4px);
+}
+.about-imgs-two img:last-child {
+  margin-top: 24px;
+}
+@media (max-width: 768px) {
+  .about-imgs-two {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about-imgs-two img {
+    height: 280px;
+  }
+  .about-imgs-two img:last-child {
+    margin-top: 0;
+  }
+}
 .about-text h2 {
   font-family: var(--font-head);
   font-size: clamp(1.8rem, 2.8vw, 2.4rem);
