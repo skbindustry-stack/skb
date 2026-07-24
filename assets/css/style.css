@@ -1674,15 +1674,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .top-bar .goog-te-menu-value span:nth-child(3) {
   display: none !important;
 }
-/* Style the dropdown arrow ▼ and add a simple space on the left */
-.top-bar .goog-te-menu-value span:last-of-type {
-  margin-left: 4px !important;
-  font-size: 0.65rem !important;
-  opacity: 0.7;
+/* Hide all text inside the menu trigger (including bare text nodes) */
+.top-bar .goog-te-menu-value {
+  font-size: 0 !important;
 }
 /* Hide standard language label text completely */
 .top-bar .goog-te-menu-value span:first-of-type {
   display: none !important;
+}
+/* Style the dropdown arrow ▼ and make it visible with 4px left space */
+.top-bar .goog-te-menu-value span:last-of-type {
+  margin-left: 4px !important;
+  font-size: 0.65rem !important;
+  opacity: 0.7;
+  display: inline-block !important;
 }
 .top-bar .goog-te-gadget-simple img { display: none !important; }
 /* Suppress Google's injected top banner */
@@ -1693,10 +1698,10 @@ body { top: 0 !important; }
 
 /* Responsive styles to show only the globe icon on mobile viewports */
 @media (max-width: 768px) {
-  .top-bar .goog-te-menu-value span:first-child {
+  .top-bar .goog-te-menu-value span:first-of-type {
     display: none !important;
   }
-  .top-bar .goog-te-menu-value span:last-child {
+  .top-bar .goog-te-menu-value span:last-of-type {
     display: none !important;
   }
   .top-bar .goog-te-menu-value span:nth-child(3) {
