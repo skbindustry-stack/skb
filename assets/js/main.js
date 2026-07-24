@@ -46,7 +46,8 @@ if (filterBtns.length && productCards.length) {
     targetBtn.classList.add('active');
 
     productCards.forEach(function(card) {
-      if (card.dataset.cat === cat) {
+      const categories = (card.dataset.cat || '').split(' ');
+      if (categories.includes(cat)) {
         card.style.display = '';
         card.style.animation = 'fadeInUp 0.3s ease both';
       } else {
