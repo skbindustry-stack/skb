@@ -136,49 +136,20 @@
         <div class="form-card">
           <h3>Dealer Registration Enquiry</h3>
           <form action="https://formspree.io/skbindustry@gmail.com" method="POST">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-              <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" name="name" placeholder="Your full name" required />
-              </div>
-              <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
-              </div>
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" placeholder="Your full name" required />
             </div>
             <div class="form-group">
-              <label>Company / Shop Name *</label>
-              <input type="text" name="company" placeholder="Your business name" required />
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
             </div>
             <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="email" placeholder="your@email.com" />
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-              <div class="form-group">
-                <label>City *</label>
-                <input type="text" name="city" placeholder="e.g. Madurai" required />
-              </div>
-              <div class="form-group">
-                <label>State *</label>
-                <input type="text" name="state" placeholder="e.g. Tamil Nadu" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Products You're Interested In</label>
-              <div class="checkbox-group">
-                <label class="checkbox-label"><input type="checkbox" name="products" value="Domestic Pumps" /> Domestic Pumps (Monoblock, Self-Priming, Shower)</label>
-                <label class="checkbox-label"><input type="checkbox" name="products" value="Agricultural Pumps" /> Agricultural Pumps (Borewell, Openwell, Jet)</label>
-                <label class="checkbox-label"><input type="checkbox" name="products" value="Industrial Pumps" /> Industrial Pumps (3-Phase, Sewage, High-HP)</label>
-                <label class="checkbox-label"><input type="checkbox" name="products" value="All Products" /> All Product Categories</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Additional Message</label>
-              <textarea name="message" placeholder="Tell us about your business, location and requirements..."></textarea>
+              <label>City *</label>
+              <input type="text" name="city" placeholder="e.g. Madurai" required />
             </div>
             <input type="hidden" name="_subject" value="New Dealer Enquiry — SKB Pumps" />
-            <button type="submit" class="btn btn-cta" style="width:100%;justify-content:center;font-size:1rem;">Submit Dealer Enquiry</button>
+            <button type="submit" class="btn btn-cta" style="width:100%;justify-content:center;font-size:1rem;margin-top:8px;">Submit Enquiry</button>
           </form>
         </div>
 
@@ -234,22 +205,24 @@
         <h2>Multiple Brands. One Trusted Manufacturer.</h2>
         <p>As an SKB dealer, you get access to all product lines under the S.K.B. Industries umbrella.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto;">
-        <div style="background:var(--bg-white);border:2px solid var(--primary);border-radius:var(--radius-lg);padding:24px;text-align:center;">
-          <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--primary);margin-bottom:4px;">SKB WATER KING</div>
-          <div style="font-size:0.8rem;color:var(--text-light);">Borewell Submersible Pumps</div>
+      <div class="brands-logo-grid">
+        <div class="brand-logo-card">
+          <img src="assets/images/brand-skb.png" alt="SKB Water King Logo" />
         </div>
-        <div style="background:var(--bg-white);border:2px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;">
-          <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--primary-dark);margin-bottom:4px;">BEST / VA BEST</div>
-          <div style="font-size:0.8rem;color:var(--text-light);">Compressor &amp; Openwell Pumps</div>
+        <div class="brand-logo-card">
+          <img src="assets/images/brand-vabest.png" alt="VA Best Logo" />
         </div>
-        <div style="background:var(--bg-white);border:2px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;">
-          <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--primary-dark);margin-bottom:4px;">SHARP WATER KING</div>
-          <div style="font-size:0.8rem;color:var(--text-light);">Premium Openwell Submersible</div>
+        <div class="brand-logo-card">
+          <img src="assets/images/brand-sharp.png" alt="Sharp Water King Logo" />
         </div>
-        <div style="background:var(--bg-white);border:2px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;">
-          <div style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--primary-dark);margin-bottom:4px;">RAINBIJLEE</div>
-          <div style="font-size:0.8rem;color:var(--text-light);">Centrifugal Monoblock Range</div>
+        <div class="brand-logo-card">
+          <img src="assets/images/brand-best.png" alt="Best Logo" />
+        </div>
+        <div class="brand-logo-card">
+          <img src="assets/images/brand-orient.png" alt="Orient Logo" />
+        </div>
+        <div class="brand-logo-card">
+          <img src="assets/images/brand-lakshmi.png" alt="Lakshmi Pumps Logo" />
         </div>
       </div>
     </div>

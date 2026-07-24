@@ -317,6 +317,46 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: radial-gradient(circle at 80% 20%, #0284c7 0%, #03045e 100%);
   padding: 40px 0 80px;
 }
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.hero-logo-wrap {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-right-logo {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .hero-logo-wrap {
+    flex: 0 0 200px;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
 .hero-video {
   position: absolute;
   inset: 0;
@@ -1591,3 +1631,46 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 body { top: 0 !important; }
 #goog-gt-tt,
 .goog-te-balloon-frame { display: none !important; }
+
+/* ─── Brands Logo Grid ──────────────────────────────── */
+.brands-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.brand-logo-card {
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.015);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 120px;
+}
+.brand-logo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 119, 182, 0.08);
+  border-color: var(--primary);
+}
+.brand-logo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .brands-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .brands-logo-grid {
+    grid-template-columns: 1fr;
+  }
+}
