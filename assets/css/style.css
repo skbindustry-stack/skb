@@ -1674,3 +1674,31 @@ body { top: 0 !important; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── District Chips ────────────────────────────────── */
+.district-chip {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-family: var(--font-sub);
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+  cursor: default;
+}
+.district-chip:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 119, 182, 0.12);
+}
+@media (max-width: 768px) {
+  .districts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}

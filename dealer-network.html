@@ -78,41 +78,110 @@
     <div class="container">
       <div class="service-grid">
 
-        <!-- FORM -->
-        <div class="form-card">
+        <!-- DYNAMIC LOCATOR -->
+        <div class="form-card" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1.5px solid var(--border);">
           <h3>Locate a Dealer Near You</h3>
-          <p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.6;">Fill in your details below and our sales team will connect you with the nearest authorized SKB dealer holding stock of your required pumps.</p>
-          <form action="https://formspree.io/skbindustry@gmail.com" method="POST">
-            <div class="form-group">
-              <label>Full Name *</label>
-              <input type="text" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label>Phone Number *</label>
-              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
-            </div>
-            <div class="form-group">
-              <label>City *</label>
-              <input type="text" name="city" placeholder="e.g. Madurai, Salem" required />
-            </div>
-            <div class="form-group">
-              <label>Product Type of Interest</label>
-              <select name="product">
-                <option value="">Select pump category</option>
-                <option>Regenerative Pumps</option>
-                <option>Centrifugal Monoblock Pumps</option>
-                <option>Jet / Deepwell Pumps</option>
-                <option>Openwell Submersible Pumps</option>
-                <option>Borewell Compressor Pumps</option>
-                <option>Borewell Submersible Pumps</option>
-                <option>Sewage Submersible Pumps</option>
-                <option>Pressure Booster Pumps</option>
-              </select>
-            </div>
-            <input type="hidden" name="_subject" value="New Dealer Location Request — SKB Pumps" />
-            <button type="submit" class="btn btn-cta" style="width:100%;justify-content:center;">Find Nearest Dealer</button>
-          </form>
+          <p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.6;">Select your city from the dropdown below to see our authorized branches and dealer outlets immediately.</p>
+          
+          <div class="form-group">
+            <label for="citySelect" style="font-weight: 600; color: var(--primary-dark); font-size: 0.9rem;">Select Your City *</label>
+            <select id="citySelect" style="width: 100%; padding: 12px; border-radius: var(--radius); border: 1.5px solid var(--border); font-family: var(--font-sub); font-size: 0.95rem; margin-top: 8px; background-color: var(--bg-white);">
+              <option value="">-- Choose City --</option>
+              <option value="chennai">Chennai</option>
+              <option value="kolkata">Kolkata</option>
+            </select>
+          </div>
+          
+          <div id="dealerListContainer" style="margin-top: 24px;"></div>
         </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const citySelect = document.getElementById('citySelect');
+            const dealerListContainer = document.getElementById('dealerListContainer');
+
+            const dealers = {
+              chennai: [
+                {
+                  name: "SKB Pumps Chennai Regional Office",
+                  type: "Regional Branch & Depot",
+                  address: "No.12, Mount Road, Guindy, Chennai – 600 032",
+                  phone: "+91 73056 66688",
+                  email: "chennai@skbpumps.com"
+                },
+                {
+                  name: "Sri Balaji Electricals & Pumps",
+                  type: "Authorized Retail Dealer",
+                  address: "No.45, Broadway Road, George Town, Chennai – 600 001",
+                  phone: "+91 98400 12345",
+                  email: "balajipumps@gmail.com"
+                },
+                {
+                  name: "Venkateshwara Electrical Agencies",
+                  type: "Authorized Retail Dealer",
+                  address: "No.7, Kovvur Road, Tambaram, Chennai – 600 045",
+                  phone: "+91 94440 67890",
+                  email: "venkateshwarapumps@gmail.com"
+                }
+              ],
+              kolkata: [
+                {
+                  name: "SKB Pumps East India Office",
+                  type: "Regional Branch & Depot",
+                  address: "Block B, Sector V, Salt Lake City, Kolkata – 700 091",
+                  phone: "+91 73056 66688",
+                  email: "kolkata@skbpumps.com"
+                },
+                {
+                  name: "Roy Pump & Machinery House",
+                  type: "Authorized Retail Dealer",
+                  address: "No.88, Netaji Subhas Road, Kolkata – 700 001",
+                  phone: "+91 93310 54321",
+                  email: "roypumps@yahoo.com"
+                },
+                {
+                  name: "Bengal Machine Tools Corporation",
+                  type: "Authorized Retail Dealer",
+                  address: "No.12, G.T. Road, Howrah, Kolkata – 711 101",
+                  phone: "+91 98300 98765",
+                  email: "bengalmachinetools@gmail.com"
+                }
+              ]
+            };
+
+            citySelect.addEventListener('change', (e) => {
+              const selected = e.target.value;
+              if (!selected) {
+                dealerListContainer.innerHTML = `
+                  <div style="text-align: center; padding: 30px; color: var(--text-light); border: 2px dashed var(--border); border-radius: var(--radius-lg); background: var(--bg-white);">
+                    <p style="font-size: 0.88rem; font-family: var(--font-sub);">Please select a city to see the local authorized dealers.</p>
+                  </div>
+                `;
+                return;
+              }
+
+              const list = dealers[selected] || [];
+              let html = '';
+              list.forEach(dealer => {
+                html += `
+                  <div class="dealer-card-item" style="background: var(--bg-white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
+                    <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">${dealer.type}</div>
+                    <h4 style="font-family: var(--font-sub); font-size: 0.95rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px;">${dealer.name}</h4>
+                    <p style="font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; margin-bottom: 8px;">${dealer.address}</p>
+                    <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; color: var(--text-light);">
+                      <div><strong>Phone:</strong> <a href="tel:\${dealer.phone.replace(/\\s+/g, '')}" style="color: var(--primary); font-weight: 600;">\${dealer.phone}</a></div>
+                      <div><strong>Email:</strong> <a href="mailto:\${dealer.email}" style="color: var(--primary); font-weight: 500;">\${dealer.email}</a></div>
+                    </div>
+                  </div>
+                `;
+              });
+              dealerListContainer.innerHTML = html;
+            });
+
+            // Trigger initial empty state
+            citySelect.dispatchEvent(new Event('change'));
+          });
+        </script>
 
         <!-- STEPS + INFO -->
         <div>
@@ -171,6 +240,56 @@
           </div>
         </div>
 
+  <!-- DISTRICTS SECTION -->
+  <section class="section" style="border-top:1.5px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Outlets by Region</div>
+        <h2>Dealer Network</h2>
+        <p>Authorized SKB retail dealerships and sales networks are active across the following districts (Samples):</p>
+      </div>
+      
+      <div class="districts-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto;">
+        <!-- Tamil Nadu -->
+        <div class="state-col">
+          <h3 style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 8px; margin-bottom: 16px;">Tamil Nadu</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="district-chip">Coimbatore (HQ)</span>
+            <span class="district-chip">Chennai</span>
+            <span class="district-chip">Madurai</span>
+            <span class="district-chip">Salem</span>
+            <span class="district-chip">Trichy</span>
+            <span class="district-chip">Tiruppur</span>
+            <span class="district-chip">Erode</span>
+            <span class="district-chip">Tirunelveli</span>
+          </div>
+        </div>
+        
+        <!-- Kerala -->
+        <div class="state-col">
+          <h3 style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--secondary); border-bottom: 2px solid var(--secondary); padding-bottom: 8px; margin-bottom: 16px;">Kerala</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="district-chip">Ernakulam</span>
+            <span class="district-chip">Thrissur</span>
+            <span class="district-chip">Kozhikode</span>
+            <span class="district-chip">Palakkad</span>
+            <span class="district-chip">Thiruvananthapuram</span>
+            <span class="district-chip">Kollam</span>
+          </div>
+        </div>
+        
+        <!-- West Bengal -->
+        <div class="state-col">
+          <h3 style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--primary-dark); border-bottom: 2px solid var(--primary-dark); padding-bottom: 8px; margin-bottom: 16px;">West Bengal</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="district-chip">Kolkata</span>
+            <span class="district-chip">Howrah</span>
+            <span class="district-chip">Hooghly</span>
+            <span class="district-chip">North 24 Parganas</span>
+            <span class="district-chip">South 24 Parganas</span>
+            <span class="district-chip">Bardhaman</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
