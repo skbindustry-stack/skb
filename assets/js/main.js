@@ -38,22 +38,42 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.product-card');
 
 if (filterBtns.length && productCards.length) {
+  function filterCategory(cat) {
+    const targetBtn = Array.from(filterBtns).find(b => b.dataset.filter === cat);
+    if (!targetBtn) return;
+
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    targetBtn.classList.add('active');
+
+    productCards.forEach(function(card) {
+      if (card.dataset.cat === cat) {
+        card.style.display = '';
+        card.style.animation = 'fadeInUp 0.3s ease both';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Add click listeners to buttons
   filterBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      filterBtns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-
-      const cat = btn.dataset.cat;
-      productCards.forEach(function(card) {
-        if (cat === 'all' || (card.dataset.cat && card.dataset.cat.split(' ').includes(cat))) {
-          card.style.display = '';
-          card.style.animation = 'fadeInUp 0.3s ease both';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      filterCategory(btn.dataset.filter);
     });
   });
+
+  // Check URL parameters on load
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterParam = urlParams.get('filter');
+  if (filterParam) {
+    filterCategory(filterParam);
+  } else {
+    // Default to the active tab's filter on load
+    const activeBtn = document.querySelector('.filter-btn.active');
+    if (activeBtn) {
+      filterCategory(activeBtn.dataset.filter);
+    }
+  }
 }
 
 /* ── Stats counter animation ── */

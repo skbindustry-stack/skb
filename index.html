@@ -143,13 +143,13 @@
   <!-- APPLICATION STRIP -->
   <div class="app-strip">
     <div class="container">
-      <span class="app-strip-label">Select Application</span>
+      <span class="app-strip-label">Select Pump Type</span>
       <div class="app-strip-links">
-        <a href="products.html?cat=domestic" class="app-link">Domestic <span>→</span></a>
+        <a href="products.html?filter=monoblock" class="app-link">Centrifugal Monoblock <span>→</span></a>
         <span class="app-div">|</span>
-        <a href="products.html?cat=agricultural" class="app-link">Agricultural <span>→</span></a>
+        <a href="products.html?filter=borewell-sub" class="app-link">Borewell Submersible <span>→</span></a>
         <span class="app-div">|</span>
-        <a href="products.html?cat=industrial" class="app-link">Industrial <span>→</span></a>
+        <a href="products.html?filter=compressor" class="app-link">Borewell Compressor <span>→</span></a>
       </div>
     </div>
   </div>
@@ -170,64 +170,132 @@
         <p>Engineered in Coimbatore. Tested to perform in Indian conditions.</p>
       </div>
       <div class="products-grid">
+        <!-- 1. Centrifugal Regenerative Pumps -->
         <div class="product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/product-borewell-sub-skb.jpg" alt="SKB Water King Borewell Submersible Pump" loading="lazy" />
+            <img src="assets/images/type-regenerative.jpg" alt="Centrifugal Regenerative Pump" loading="lazy" />
           </div>
           <div class="product-info">
-            <div class="product-category">Agricultural · Domestic</div>
-            <div class="product-name">Borewell Submersible Pump</div>
+            <div class="product-category">Domestic · Commercial</div>
+            <div class="product-name">Centrifugal Regenerative Pumps</div>
             <div class="product-chips">
-              <span class="chip isi">IS 14220</span>
-              <span class="chip">0.75 – 5 HP</span>
-              <span class="chip">SS Body</span>
+              <span class="chip isi">IS 8472</span>
+              <span class="chip">0.5 – 1.0 HP</span>
+              <span class="chip">Self-Priming</span>
             </div>
-            <a href="products.html" class="btn btn-outline btn-sm">View Details</a>
+            <a href="products.html?filter=regenerative" class="btn btn-outline btn-sm">Explore Range</a>
           </div>
         </div>
+        <!-- 2. Centrifugal Monoblock Pumps -->
         <div class="product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/product-monoblock-teal.jpg" alt="SKB Centrifugal Monoblock Pump" loading="lazy" />
+            <img src="assets/images/type-monoblock.jpg" alt="Centrifugal Monoblock Pump" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Domestic · Agricultural · Industrial</div>
+            <div class="product-name">Centrifugal Monoblock Pumps</div>
+            <div class="product-chips">
+              <span class="chip isi">IS 9079</span>
+              <span class="chip">0.5 – 5.0 HP</span>
+              <span class="chip">1 &amp; 3 Phase</span>
+            </div>
+            <a href="products.html?filter=monoblock" class="btn btn-outline btn-sm">Explore Range</a>
+          </div>
+        </div>
+        <!-- 3. Centrifugal Deepwell / Jet Pumps -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/type-jet.jpg" alt="Centrifugal Deepwell / Jet Pump" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-category">Domestic · Agricultural</div>
-            <div class="product-name">Centrifugal Monoblock Pump</div>
+            <div class="product-name">Centrifugal Deepwell / Jet Pumps</div>
             <div class="product-chips">
-              <span class="chip isi">IS 9079</span>
-              <span class="chip">0.5 – 2 HP</span>
+              <span class="chip isi">IS 12225</span>
+              <span class="chip">0.5 – 1.5 HP</span>
               <span class="chip">Single Phase</span>
             </div>
-            <a href="products.html" class="btn btn-outline btn-sm">View Details</a>
+            <a href="products.html?filter=jet" class="btn btn-outline btn-sm">Explore Range</a>
           </div>
         </div>
+        <!-- 4. Openwell Submersible Pumps -->
         <div class="product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/product-compressor.jpg" alt="Best Sena Borewell Compressor Pump" loading="lazy" />
+            <img src="assets/images/type-openwell.jpg" alt="Openwell Submersible Pump" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Domestic · Agricultural · Industrial</div>
+            <div class="product-name">Openwell Submersible Pumps</div>
+            <div class="product-chips">
+              <span class="chip">0.5 – 5.0 HP</span>
+              <span class="chip">Silent Run</span>
+              <span class="chip">Low Maintenance</span>
+            </div>
+            <a href="products.html?filter=openwell" class="btn btn-outline btn-sm">Explore Range</a>
+          </div>
+        </div>
+        <!-- 5. Borewell Submersible Pumps -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/type-borewell-sub.jpg" alt="Borewell Submersible Pump" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Agricultural · Industrial · Domestic</div>
+            <div class="product-name">Borewell Submersible Pumps</div>
+            <div class="product-chips">
+              <span class="chip">0.75 – 5.0 HP</span>
+              <span class="chip">V4 Series</span>
+              <span class="chip">SS 410 Shaft</span>
+            </div>
+            <a href="products.html?filter=borewell-sub" class="btn btn-outline btn-sm">Explore Range</a>
+          </div>
+        </div>
+        <!-- 6. Borewell Compressor Pumps -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/type-compressor.jpg" alt="Borewell Compressor Pump" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-category">Agricultural · Domestic</div>
-            <div class="product-name">Borewell Compressor Pump</div>
+            <div class="product-name">Borewell Compressor Pumps</div>
             <div class="product-chips">
               <span class="chip isi">IS 14220</span>
-              <span class="chip">1 – 10 HP</span>
-              <span class="chip">100–500 ft</span>
+              <span class="chip">1.0 – 10 HP</span>
+              <span class="chip">100 – 500 ft</span>
             </div>
-            <a href="products.html" class="btn btn-outline btn-sm">View Details</a>
+            <a href="products.html?filter=compressor" class="btn btn-outline btn-sm">Explore Range</a>
           </div>
         </div>
+        <!-- 7. Submersible Sewage Pumps -->
         <div class="product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/product-openwell-skb.jpg" alt="SKB Openwell Submersible Pump" loading="lazy" />
+            <img src="assets/images/type-sewage.jpg" alt="Submersible Sewage Pump" loading="lazy" />
           </div>
           <div class="product-info">
-            <div class="product-category">Agricultural · Industrial</div>
-            <div class="product-name">Openwell Submersible Pump</div>
+            <div class="product-category">Industrial · Commercial · Civil</div>
+            <div class="product-name">Submersible Sewage Pumps</div>
             <div class="product-chips">
-              <span class="chip">0.5 – 5 HP</span>
-              <span class="chip">Silent</span>
-              <span class="chip">Low Maintenance</span>
+              <span class="chip">0.5 – 2.0 HP</span>
+              <span class="chip">IP68 Rated</span>
+              <span class="chip">SS 304 Body</span>
             </div>
-            <a href="products.html" class="btn btn-outline btn-sm">View Details</a>
+            <a href="products.html?filter=sewage" class="btn btn-outline btn-sm">Explore Range</a>
+          </div>
+        </div>
+        <!-- 8. Pressure Booster Systems -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/type-booster.jpg" alt="Pressure Booster System" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-category">Domestic · Commercial</div>
+            <div class="product-name">Pressure Booster Systems</div>
+            <div class="product-chips">
+              <span class="chip">0.8 – 2.0 HP</span>
+              <span class="chip">Auto On/Off</span>
+              <span class="chip">Booster Tanks</span>
+            </div>
+            <a href="products.html?filter=booster" class="btn btn-outline btn-sm">Explore Range</a>
           </div>
         </div>
       </div>
