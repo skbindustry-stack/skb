@@ -314,7 +314,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--primary-dark);
+  background: radial-gradient(circle at 80% 20%, #0284c7 0%, #03045e 100%);
   padding: 40px 0 80px;
 }
 .hero-video {
