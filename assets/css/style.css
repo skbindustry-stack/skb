@@ -1596,12 +1596,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .top-bar .goog-te-gadget-simple {
   background: transparent !important;
   border: none !important;
-  padding: 0 !important;
+  padding: 4px 0 !important;
   cursor: pointer !important;
   box-shadow: none !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
   font-family: var(--font-sub) !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
@@ -1609,7 +1608,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .top-bar .goog-te-gadget-simple::before {
   content: '🌐';
   font-size: 0.95rem;
-  margin-right: 2px;
+  margin-right: 6px;
 }
 .top-bar .goog-te-gadget-simple a,
 .top-bar .goog-te-gadget-simple span,
@@ -1625,13 +1624,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .top-bar .goog-te-menu-value:hover span {
   color: var(--accent) !important;
 }
-/* Hide the separator line '|' */
+/* Style the separator line '|' and give it padding/margin */
 .top-bar .goog-te-menu-value span:nth-child(3) {
-  display: none !important;
+  border-left: 1px solid rgba(255,255,255,0.2) !important;
+  margin: 0 8px !important;
+  height: 10px;
+  display: inline-block !important;
+  vertical-align: middle;
 }
 /* Style the dropdown arrow ▼ */
 .top-bar .goog-te-menu-value span:last-child {
-  margin-left: 2px !important;
+  margin-left: 0 !important;
   font-size: 0.65rem !important;
   opacity: 0.7;
 }
@@ -1656,6 +1659,9 @@ body { top: 0 !important; }
     display: none !important;
   }
   .top-bar .goog-te-menu-value span:last-child {
+    display: none !important;
+  }
+  .top-bar .goog-te-menu-value span:nth-child(3) {
     display: none !important;
   }
   .top-bar .goog-te-gadget-simple::before {
