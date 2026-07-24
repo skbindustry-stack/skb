@@ -1676,13 +1676,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 /* Style the dropdown arrow ▼ and add a simple space on the left */
 .top-bar .goog-te-menu-value span:last-child {
-  margin-left: 8px !important;
+  margin-left: 4px !important;
   font-size: 0.65rem !important;
   opacity: 0.7;
 }
-/* Keep standard language label text */
+/* Hide standard language label text completely */
 .top-bar .goog-te-menu-value span:first-child {
-  font-size: 0.8rem !important;
+  display: none !important;
 }
 .top-bar .goog-te-gadget-simple img { display: none !important; }
 /* Suppress Google's injected top banner */
