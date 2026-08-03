@@ -1110,7 +1110,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   cursor: pointer;
   transition: all var(--transition);
 }
-.filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+.filter-btn:not(.active):hover { border-color: var(--primary); color: var(--primary); }
 .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
 .product-card[data-cat] { transition: opacity 0.2s, transform 0.2s; }
@@ -1621,7 +1621,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .domain-card:hover .domain-icon { background: var(--bg-light); color: var(--primary); }
   .btn-primary:hover,
   .btn-cta:hover { transform: none; box-shadow: none; }
-  .filter-btn:hover { border-color: var(--border); color: var(--text-mid); }
+  .filter-btn:not(.active):hover { border-color: var(--border); color: var(--text-mid); }
 }
 
 /* ─── Focus-visible — keyboard gets ring, mouse gets none ── */
