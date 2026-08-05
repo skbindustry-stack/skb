@@ -21,7 +21,7 @@ Generated: 2026-06-29 | Based on: PDF booklet + 69 WhatsApp images + competitor 
 | Address | No.334/2, 14-A, Rajagopal Layout, Elango Nagar, Peelamedu, Coimbatore – 641 004 |
 | Tagline | "Every Drop of Water Counts — Save Blue, Live Green" |
 | Vision | "Quality Assured, Cost Effective and Timely Delivered water pumps" |
-| Branches | Chennai · Kolkata · Kerala |
+| Branches | Coimbatore · Chennai · Thiruvallur · Kolkata · Kerala |
 
 **⚠️ PHONE NUMBER MISSING — confirm from client before building header**
 
@@ -220,14 +220,14 @@ ISO 9001:2008  |  ISI Mark (5 standards)  |  20 Years Excellence  |  120+ Models
 - 20+ Years of manufacturing
 - 120+ Pump models
 - 5 ISI certifications
-- 3 Branch locations (Chennai, Kolkata, Kerala)
+- 5 Branch locations (Coimbatore, Chennai, Thiruvallur, Kolkata, Kerala)
 
 **Section 6 — Why SKB (3-column quick teaser)**
 - Quality Assured · Cost Effective · Timely Delivered
 - → "See all reasons" button → Why SKB Pumps page
 
 **Section 7 — Branches Strip**
-Coimbatore (HQ) · Chennai · Kolkata · Kerala
+Coimbatore (HQ) · Chennai · Thiruvallur · Kolkata · Kerala
 
 **Section 8 — Tagline CTA**
 "Every Drop of Water Counts. Save Blue, Live Green."
