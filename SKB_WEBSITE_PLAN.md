@@ -17,7 +17,7 @@ Generated: 2026-06-29 | Based on: PDF booklet + 69 WhatsApp images + competitor 
 | ISO | 9001:2008 Certified — Cert. Regn. No. 765546 |
 | UKAS/GIC | Quality Management certified |
 | Email | info@skbpumps.in / skbindustry@gmail.com |
-| Website | www.skbpumps.com |
+| Website | www.skbpumps.in |
 | Address | No.334/2, 14-A, Rajagopal Layout, Elango Nagar, Peelamedu, Coimbatore – 641 004 |
 | Tagline | "Every Drop of Water Counts — Save Blue, Live Green" |
 | Vision | "Quality Assured, Cost Effective and Timely Delivered water pumps" |
