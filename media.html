@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Gallery — SKB Pumps Coimbatore | Product & Factory Gallery</title>
+  <meta name="description" content="Explore the S.K.B. Industries photo gallery featuring SKB water pumps, factory operations, and product showcases in Coimbatore." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css?v=6" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "SKB Pumps Media Gallery",
+    "description": "Photo gallery of SKB Pumps water pumps and manufacturing operations.",
+    "url": "https://skbpumps.in/media",
+    "publisher": {
+      "@type": "Organization",
+      "name": "S.K.B. Industries",
+      "logo": "https://skbpumps.in/assets/images/logo-main.jpg"
+    }
+  }
+  </script>
+  <style>
+    .media-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .media-card {
+      background: var(--bg-white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+    .media-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .media-card-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .media-card:hover .media-card-img {
+      transform: scale(1.06);
+    }
+    .media-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 132, 199, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .media-card:hover .media-card-overlay {
+      opacity: 1;
+    }
+    .media-card-overlay svg {
+      color: #ffffff;
+      width: 38px;
+      height: 38px;
+      transform: scale(0.8);
+      transition: transform var(--transition);
+    }
+    .media-card:hover .media-card-overlay svg {
+      transform: scale(1);
+    }
+
+    /* ── Full View Lightbox Slider ── */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background-color: rgba(8, 15, 30, 0.94);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.25s ease both;
+      user-select: none;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10001;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: var(--secondary);
+    }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all var(--transition);
+    }
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+
+    .lightbox-content-wrap {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-content {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .lightbox-counter {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-sub);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-prev { left: 10px; width: 44px; height: 44px; }
+      .lightbox-next { right: 10px; width: 44px; height: 44px; }
+      .lightbox-close { top: 12px; right: 18px; font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <span class="brand-name">SKB PUMPS</span>
+      <span class="info-item always">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <a href="tel:+917305666688">+91 73056 66688</a>
+      </span>
+      <span class="info-item">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <a href="mailto:skbindustry@gmail.com">skbindustry@gmail.com</a>
+      </span>
+      <span class="info-item">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Mon – Sat &nbsp;9:00 AM – 5:00 PM
+      </span>
+      <span class="info-item always lang-selector-wrap">
+        <div id="google_translate_element"></div>
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo-main.jpg" alt="SKB Water King" class="logo-img" />
+        </a>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="why-skb.html">Why SKB?</a>
+          <a href="products.html">Products</a>
+          <a href="branches.html">Branches</a>
+          <a href="media.html" class="active">Media</a>
+          <a href="dealer.html" class="nav-cta">Dealer Enquiry</a>
+        </nav>
+        <div class="hamburger" id="menuBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo-main.jpg" alt="SKB Water King" class="logo-img" />
+      </a>
+      <span class="mobile-nav-close" id="menuClose">✕</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="why-skb.html">Why SKB Pumps?</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="branches.html">Branches</a></li>
+      <li><a href="media.html" class="active">Media Gallery</a></li>
+      <li><a href="dealer.html">Dealer Enquiry</a></li>
+    </ul>
+    <a href="dealer.html" class="btn btn-cta">Become a Dealer</a>
+    <div class="mobile-top-info">
+      <span>Mob <a href="tel:+917305666688">+91 73056 66688</a></span>
+      <span>Email <a href="mailto:skbindustry@gmail.com">skbindustry@gmail.com</a></span>
+      <span>Mon–Sat · 9AM–5PM</span>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="min-height:280px; padding: 50px 0 60px;">
+    <div class="hero-overlay"></div>
+    <div class="container hero-container" style="justify-content:center; text-align:center;">
+      <div class="hero-content" style="max-width:800px;">
+        <div class="hero-badge">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
+          S.K.B. Industries Showcase
+        </div>
+        <h1>Media <span>Gallery</span></h1>
+        <p>Explore our product models, factory infrastructure, and operations in Coimbatore. Click any photo to open full view with slider controls.</p>
+      </div>
+    </div>
+    <div class="hero-waves" aria-hidden="true">
+      <svg class="wave-back" viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M0,42 C240,18 480,58 720,42 C960,26 1200,58 1440,42 C1680,26 1920,58 2160,42 C2400,26 2640,58 2880,42 L2880,70 L0,70 Z"/>
+      </svg>
+      <svg class="wave-front" viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M0,52 C360,22 720,62 1080,48 C1440,34 1800,60 2160,44 C2520,28 2700,56 2880,52 L2880,70 L0,70 Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- GALLERY MAIN SECTION -->
+  <section class="section section-drops">
+    <div class="drops-layer" aria-hidden="true">
+      <div class="wd" style="width:64px;height:84px;top:5%;right:4%;"></div>
+      <div class="wd" style="width:38px;height:50px;bottom:8%;left:3%;opacity:0.75;"></div>
+      <div class="wd" style="width:22px;height:30px;top:40%;right:16%;opacity:0.6;"></div>
+    </div>
+
+    <div class="container">
+      <div class="media-gallery-grid" id="mediaGallery">
+        <!-- 27 Images dynamically rendered -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Looking for Pump Specifications or Dealer Enquiries?</h2>
+      <p>Our engineering and sales team are available to help you select the ideal pump for your application.</p>
+      <div class="cta-actions">
+        <a href="dealer.html" class="btn btn-cta">Dealer Enquiry</a>
+        <a href="tel:+917305666688" class="btn btn-outline-white">Call +91 73056 66688</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-emblem.jpg" alt="SKB" class="footer-emblem" />
+          <p>S.K.B. Industries — Leading manufacturer of water pumps since 2001. Built in Coimbatore, trusted across India.</p>
+          <div class="footer-tagline">"Save Blue, Live Green"</div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="why-skb.html">Why SKB Pumps?</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="branches.html">Branches</a></li>
+            <li><a href="media.html">Media Gallery</a></li>
+            <li><a href="dealer.html">Dealer Enquiry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">Self-Priming Pumps</a></li>
+            <li><a href="products.html">Monoblock Pumps</a></li>
+            <li><a href="products.html">Borewell Submersible</a></li>
+            <li><a href="products.html">Compressor Pumps</a></li>
+            <li><a href="products.html">Openwell Submersible</a></li>
+            <li><a href="products.html">Jet Pumps</a></li>
+            <li><a href="products.html">Sewage Pumps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <p><a href="tel:+917305666688">+91 73056 66688</a></p>
+            </div>
+            <div class="contact-item">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <p><a href="mailto:skbindustry@gmail.com">skbindustry@gmail.com</a><br/><a href="mailto:info@skbpumps.in" style="font-size:0.8rem;opacity:0.7;">info@skbpumps.in</a></p>
+            </div>
+            <div class="contact-item">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <p>No.334/2, 14-A, Rajagopal Layout,<br/>Elango Nagar, Peelamedu,<br/>Coimbatore – 641 004</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 S.K.B. Industries. All rights reserved.</span>
+        <span>ISO 9001:2008 Certified · ISI Marked · Made in Coimbatore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- FULL VIEW LIGHTBOX SLIDER MODAL -->
+  <div id="lightboxSliderModal" class="lightbox-modal">
+    <span class="lightbox-close" onclick="closeSliderLightbox()">&times;</span>
+    <button class="lightbox-prev" onclick="prevSliderImage()" aria-label="Previous image">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="lightbox-content-wrap" onclick="event.stopPropagation()">
+      <img class="lightbox-content" id="sliderImg" alt="SKB Pumps Full View" />
+      <div class="lightbox-counter" id="sliderCounter">1 / 27</div>
+    </div>
+    <button class="lightbox-next" onclick="nextSliderImage()" aria-label="Next image">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Build 27 images array
+    const galleryImages = [];
+    for (let i = 1; i <= 27; i++) {
+      const numStr = i < 10 ? '0' + i : '' + i;
+      galleryImages.push(`assets/images/gallery/gallery-${numStr}.jpg`);
+    }
+
+    let currentIndex = 0;
+    const gridContainer = document.getElementById('mediaGallery');
+
+    // Render Grid
+    galleryImages.forEach((src, idx) => {
+      const card = document.createElement('div');
+      card.className = 'media-card';
+      card.onclick = () => openSliderLightbox(idx);
+      card.innerHTML = `
+        <img src="${src}" alt="SKB Pumps Gallery Image ${idx + 1}" class="media-card-img" loading="lazy" />
+        <div class="media-card-overlay">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+          </svg>
+        </div>
+      `;
+      gridContainer.appendChild(card);
+    });
+
+    const modal = document.getElementById('lightboxSliderModal');
+    const sliderImg = document.getElementById('sliderImg');
+    const sliderCounter = document.getElementById('sliderCounter');
+
+    function openSliderLightbox(idx) {
+      currentIndex = idx;
+      updateSliderImage();
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSliderLightbox() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function updateSliderImage() {
+      sliderImg.src = galleryImages[currentIndex];
+      sliderCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+    }
+
+    function prevSliderImage() {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateSliderImage();
+    }
+
+    function nextSliderImage() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateSliderImage();
+    }
+
+    // Modal background click to close
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeSliderLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'Escape') closeSliderLightbox();
+        if (e.key === 'ArrowLeft') prevSliderImage();
+        if (e.key === 'ArrowRight') nextSliderImage();
+      }
+    });
+
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,ta,ml,bn',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
