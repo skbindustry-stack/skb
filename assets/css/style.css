@@ -973,6 +973,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: rgba(255,255,255,0.78);
   max-width: 580px;
 }
+.page-hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+.page-hero-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 650px;
+}
+.page-hero-action {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.btn-hero-brochure {
+  background: #ffffff;
+  color: var(--primary-dark);
+  font-family: var(--font-sub);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 26px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all var(--transition);
+  border: 2px solid #ffffff;
+}
+.btn-hero-brochure:hover {
+  background: var(--cta);
+  border-color: var(--cta);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
+}
 
 .about-grid {
   display: grid;
