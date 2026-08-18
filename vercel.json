@@ -1,6 +1,7 @@
 {
   "version": 2,
   "routes": [
+    { "src": "/blog/water-pump-dealership-guide-coimbatore-sourcing", "dest": "/blog/water-pump-dealership-guide-coimbatore-sourcing.html" },
     { "src": "/media", "dest": "/media.html" },
     { "src": "/about", "dest": "/about.html" },
     { "src": "/products", "dest": "/products.html" },
