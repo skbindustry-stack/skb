@@ -1,3 +1,16 @@
 {
-  "cleanUrls": true
+  "version": 2,
+  "routes": [
+    { "src": "/blog/water-pump-dealership-guide-coimbatore-sourcing", "dest": "/blog/water-pump-dealership-guide-coimbatore-sourcing.html" },
+    { "src": "/blog/top-water-pump-manufacturers-coimbatore", "dest": "/blog/top-water-pump-manufacturers-coimbatore.html" },
+    { "src": "/blog/best-borewell-submersible-pump-brands-india", "dest": "/blog/best-borewell-submersible-pump-brands-india.html" },
+    { "src": "/blog/best-water-pump-for-home-and-agriculture-guide", "dest": "/blog/best-water-pump-for-home-and-agriculture-guide.html" },
+    { "src": "/media", "dest": "/media.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/products", "dest": "/products.html" },
+    { "src": "/why-skb", "dest": "/why-skb.html" },
+    { "src": "/branches", "dest": "/branches.html" },
+    { "src": "/dealer", "dest": "/dealer.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
 }
