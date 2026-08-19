@@ -51,7 +51,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: rgba(255,255,255,0.9);
   font-family: var(--font-body);
   font-size: 0.82rem;
-  padding: 8px 0;
+  padding: max(8px, env(safe-area-inset-top)) 0 8px;
 }
 .top-bar .container {
   display: flex;
@@ -1386,7 +1386,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--bg-white);
   z-index: 2000;
   flex-direction: column;
-  padding: 28px 24px;
+  padding: max(28px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   overflow-y: auto;
 }
 .mobile-nav.open { display: flex; }
